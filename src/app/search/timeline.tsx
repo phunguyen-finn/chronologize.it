@@ -9,7 +9,7 @@ import Details from './details';
 
 const Divider = ({ time, style, className }: any) => {
     return <div className={"h-full flex flex-col relative self-end" + className} style={{ height: "calc(100% - 30px)", ...style }}>
-        {time ? <div className="absolute top-[-30px] left-1/2 translate-x-[-50%] text-center text-md w-[100px]">{time}</div> : null}
+        {time ? <div className="absolute top-[-30px] left-1/2 translate-x-[-50%] text-center text-md w-[200px]">{time}</div> : null}
         <svg width="5" height="100%" viewBox="0 0 5 100%" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M2.5 0L2.5 3000" stroke="#A8A8A8" strokeDasharray="5 5" />
             {
@@ -22,6 +22,7 @@ const Divider = ({ time, style, className }: any) => {
 }
 
 export default function TimelineVisualizer({ timeline }: { timeline: Timeline }) {
+    console.log(timeline);
     const ref = useRef<any>(null);
     const { scrollYProgress } = useScroll({
         target: ref,
@@ -36,8 +37,8 @@ export default function TimelineVisualizer({ timeline }: { timeline: Timeline })
         <div ref={ref} className="hidden sm:flex sticky top-0 flex no-scrollbar w-full justify-center" style={{ height: `${timeline.markers.length * 350}px` }}>
             <div className="max-h-[1080px] sticky top-0 flex h-screen items-center w-full overflow-hidden no-scrollbar">
                 <motion.div style={{ x: _x }} className='relative flex h-[75%] px-5 translate-x-[100%] gap-[100px]'>
-                    <div className="absolute w-[300px] left-0 -translate-x-full h-full">
-                        <h1 className="font-bold text-2xl">
+                    <div className="absolute w-[300px] lg:w-[400px] lg:left-[-100px] left-0 -translate-x-full h-full">
+                        <h1 className="font-bold text-2xl lg:text-3xl">
                             {timeline.title}
                         </h1>
                         <p>
@@ -52,25 +53,25 @@ export default function TimelineVisualizer({ timeline }: { timeline: Timeline })
                                 <Divider />
                                 <Divider />
                                 <Divider />
-                                <div onClick={() => { setSelectedMarker(marker); setOpen(true); }} className={`border-black border-[1px] absolute left-10 ease-in-out	duration-100 hover:shadow-2xl bg-white rounded-md flex flex-col p-4 w-[60%] ${index % 2 ? 'top-[15%]' : 'bottom-[15%]'}`}>
+                                <div onClick={() => { setSelectedMarker(marker); setOpen(true); }} className={`cursor-pointer border-black border-[1px] absolute left-10 ease-in-out duration-100 hover:shadow-2xl bg-white rounded-md flex flex-col p-4 w-[60%] ${index % 2 ? 'top-[15%]' : 'bottom-[15%]'}`}>
                                     <div className="text-lg font-bold">{marker.title}</div>
                                     <div className="text-md">{marker.preview}</div>
 
                                     {
-                                        marker.thumbnailUrl && marker.width && marker.height && marker.width / marker.height >= 0.7 && <Image
-                                            src={marker.thumbnailUrl}
+                                        marker.medias.length != 0 && marker.medias[0].width / marker.medias[0].height >= 0.7 && <Image
+                                            src={marker.medias[0].url}
                                             alt={marker.title}
-                                            width={marker.width}
-                                            height={marker.height}
+                                            width={marker.medias[0].width}
+                                            height={marker.medias[0].height}
                                             style={{ width: '100%', height: 'auto' }}
                                             className='rounded-md border-black border-[1px] mt-5'
                                         />
                                     }
                                     {
-                                        marker.thumbnailUrl && marker.width && marker.height && marker.width / marker.height < 0.7 &&
+                                        marker.medias.length != 0 && marker.medias[0].width / marker.medias[0].height < 0.7 &&
                                         <div className="relative w-full h-[200px] mt-5 rounded-md border-black border-[1px]">
                                             <Image
-                                                src={marker.thumbnailUrl}
+                                                src={marker.medias[0].url}
                                                 alt={marker.title}
                                                 layout="fill"
                                                 objectFit="contain"
@@ -96,20 +97,20 @@ export default function TimelineVisualizer({ timeline }: { timeline: Timeline })
                             <div className="text-xs">{marker.preview}</div>
 
                             {
-                                marker.thumbnailUrl && marker.width && marker.height && marker.width / marker.height >= 0.7 && <Image
-                                    src={marker.thumbnailUrl}
+                                marker.medias.length != 0 && marker.medias[0].width / marker.medias[0].height >= 0.7 && <Image
+                                    src={marker.medias[0].url}
                                     alt={marker.title}
-                                    width={marker.width}
-                                    height={marker.height}
+                                    width={marker.medias[0].width}
+                                    height={marker.medias[0].height}
                                     style={{ width: '100%', height: 'auto' }}
                                     className='rounded-md border-black border-[1px] mt-5'
                                 />
                             }
                             {
-                                marker.thumbnailUrl && marker.width && marker.height && marker.width / marker.height < 0.7 &&
+                                marker.medias.length != 0 && marker.medias[0].width / marker.medias[0].height < 0.7 &&
                                 <div className="relative w-full h-[200px] mt-5 rounded-md border-black border-[1px]">
                                     <Image
-                                        src={marker.thumbnailUrl}
+                                        src={marker.medias[0].url}
                                         alt={marker.title}
                                         layout="fill"
                                         objectFit="contain"

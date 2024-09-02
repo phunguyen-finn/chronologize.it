@@ -24,10 +24,14 @@ export const WikiService = {
                     'url': "https://" + file['preferred']['url'].substring(2),
                     'width': file['preferred']['width'],
                     'height': file['preferred']['height'],
+                    'pageTitle': page['title'],
                 };
             });
         }));
         const flattenedMediaFiles = mediaFiles.flat();
-        return flattenedMediaFiles;
+
+        const titlesSet = new Set(); // temp variable to keep track of accepted ids
+        const uniqueMedias = flattenedMediaFiles.filter(({ title }) => !titlesSet.has(title) && titlesSet.add(title));
+        return uniqueMedias;
     }
 }
