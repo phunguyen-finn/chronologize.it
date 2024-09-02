@@ -61,10 +61,31 @@ Generate at most 15 events in the timeline.`;
         });
 
         const timeline = JSON.parse(genTimelineCompletion.choices[0].message.content as string);
+        return OpenAIService._timelineFromRawTimeline(timeline);
+    },
 
+    loadMore: async (title: string, startMarker: Marker, endMarker: Marker) => {
+        const loadMorePrompt = `You are a historian working on a timeline of the history of the topic "${title}".
+The user has requested to load more information about the topic "${title}" from the event "${startMarker.title}" (${startMarker.time}) to the event "${endMarker.title}" (${endMarker.time}).
+
+You should created another timeline that includes major events related to the topic that happened between two events above (but exclude the events above).
+For each event, provide a short preview of the event (one or two sentences), and a detailed description (one paragraph).
+The last event should be the most recent event you can find.
+Provide a list of at most 3 related Wikipedia pages for the topic, we'll fetch the images from there to show users.
+Generate at most 3 events in the timeline.`;
+        const loadMoreCompletion = await client.chat.completions.create({
+            messages: [{ role: 'user', content: loadMorePrompt }],
+            model: 'gpt-4o-mini-2024-07-18',
+            response_format: zodResponseFormat(RawTimeline, "raw_timeline"),
+        });
+        const timeline = JSON.parse(loadMoreCompletion.choices[0].message.content as string);
+        return OpenAIService._timelineFromRawTimeline(timeline);
+    },
+
+    _timelineFromRawTimeline: async (timeline: any) => {
         const relatedMediaFiles = await WikiService.gatherRelatedMediaFiles(timeline.related_wikis_pages);
 
-        const getMatchedMediaFilesPrompt = `You have created a timeline of the history of the topic "${query}" including major events and dates. Below are the major events:
+        const getMatchedMediaFilesPrompt = `You have created a timeline of the history of the topic "${timeline.title}" including major events and dates. Below are the major events:
 ${timeline.markers.map((marker: Marker, index: number) => `EVENT #${index} - ${marker.time}: ${marker.title}\n`)}
 For each event, returns a lists of the file names of the images that best represent the event.
 An event may have multiple images that represent it, but choose AT MOST 5 images for each event.

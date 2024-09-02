@@ -3,7 +3,7 @@ export const WikiService = {
         const relatedPages = await Promise.all(pages.map(async (page) => {
             const response = await fetch(`https://api.wikimedia.org/core/v1/wikipedia/en/search/page?q=${page}&limit=1`);
             const media = await response.json();
-            if (!media['pages'].length) {
+            if (!media['pages'] || media['pages'].length == 0) {
                 return null;
             }
             return media['pages'][0];
