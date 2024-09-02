@@ -31,7 +31,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={neueMontreal.className}>
         <main className="bg-white dark:bg-black">
-          <div className="fixed top-0 right-0 p-5">
+          <div className="fixed top-0 right-0 p-5 z-10">
             <div className="inline-flex items-center">
               <div className="relative inline-block w-8 h-4 rounded-full cursor-pointer">
                 <input id="switch-component" type="checkbox"
@@ -67,7 +67,7 @@ export default function RootLayout({
                 <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-black"></span>
               </Link>
             </div>
-            <Link href='/terms' className="text-gray-500 text-xs">
+            <Link href='/terms' className="text-gray-500 text-xs z-10">
               Privacy Policy, Cookie Policy & Terms and Conditions →
             </Link>
           </div>

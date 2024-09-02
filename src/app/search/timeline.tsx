@@ -29,7 +29,7 @@ export default function TimelineVisualizer({ timeline }: { timeline: Timeline })
     const _x = useTransform(() => `calc(${x.get()} + ${width.get()})`)
 
     return <div>
-        <div ref={ref} className="sticky top-0 flex no-scrollbar w-full justify-center" style={{ height: `${timeline.markers.length * 350}px` }}>
+        <div ref={ref} className="hidden sm:flex sticky top-0 flex no-scrollbar w-full justify-center" style={{ height: `${timeline.markers.length * 350}px` }}>
             <div className="max-h-[1080px] sticky top-0 flex h-screen items-center w-full overflow-hidden no-scrollbar">
                 <motion.div style={{ x: _x }} className='relative flex h-[75%] px-5 translate-x-[100%] gap-[100px]'>
                     <div className="absolute w-[300px] left-0 -translate-x-full h-full">
@@ -82,5 +82,41 @@ export default function TimelineVisualizer({ timeline }: { timeline: Timeline })
                 </motion.div>
             </div>
         </div >
+        <div className='block sm:hidden flex flex-col items-center justify-center p-5'>
+            {
+                timeline.markers.map((marker: Marker, index: number) => {
+                    return <div key={index} className='mt-5'>
+                        <span>{marker.time}</span>
+                        <div className={`border-black border-[1px] left-10 ease-in-out duration-100 hover:shadow-2xl bg-white rounded-md flex flex-col p-4 w-full max-w-[300px]`}>
+                            <div className="text-base font-bold">{marker.title}</div>
+                            <div className="text-xs">{marker.preview}</div>
+
+                            {
+                                marker.thumbnailUrl && marker.width && marker.height && marker.width / marker.height >= 0.7 && <Image
+                                    src={marker.thumbnailUrl}
+                                    alt={marker.title}
+                                    width={marker.width}
+                                    height={marker.height}
+                                    style={{ width: '100%', height: 'auto' }}
+                                    className='rounded-md border-black border-[1px] mt-5'
+                                />
+                            }
+                            {
+                                marker.thumbnailUrl && marker.width && marker.height && marker.width / marker.height < 0.7 &&
+                                <div className="relative w-full h-[200px] mt-5 rounded-md border-black border-[1px]">
+                                    <Image
+                                        src={marker.thumbnailUrl}
+                                        alt={marker.title}
+                                        layout="fill"
+                                        objectFit="contain"
+                                        style={{ width: '100%', height: '100%' }}
+                                    />
+                                </div>
+                            }
+                        </div>
+                    </div>
+                })
+            }
+        </div>
     </div >
 }
