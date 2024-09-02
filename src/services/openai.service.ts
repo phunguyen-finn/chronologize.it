@@ -49,8 +49,7 @@ export const OpenAIService = {
 For each event, provide a short preview of the event (one or two sentences), and a detailed description (two paragraphs).
 The last event should be the most recent event you can find.
 Provide a list of at most 15 related Wikipedia pages for the topic, we'll fetch the images from there to show users.
-Generate around 15 events in the timeline.
-`;
+Generate at most 20 events in the timeline.`;
         const genTimelineCompletion = await client.chat.completions.create({
             messages: [{ role: 'user', content: genTimelinePrompt }],
             model: 'gpt-4o-mini-2024-07-18',
@@ -66,7 +65,9 @@ ${timeline.markers.map((marker: Marker, index: number) => `EVENT #${index} - ${m
 We have also crawled a list of possibly related images from Wikipedia. The below is the list of the file name of the images we have found:
 ${JSON.stringify(relatedMediaFiles.map((media) => media.title))}
 For each event, please provide the file name of the image that best represents the event. If there is no image suitable for that event, please return empty string "".
-Return a list of the selected file names in the same order as the events.`;
+Return a list of the selected file names in the same order as the events.
+IMPORTANT: Don't choose an image twice.
+`;
 
         const getMatchedMediaFilesCompletion = await client.chat.completions.create({
             messages: [{ role: 'user', content: getMatchedMediaFilesPrompt }],
