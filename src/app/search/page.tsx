@@ -422,5 +422,5 @@ export default async function SearchPage({ searchParams }: { searchParams: { que
             "Edible Mushrooms"
         ]
     }
-    return <TimelineVisualizer timeline={timeline} />;
+    return <TimelineVisualizer initTimeline={timeline} />;
 }

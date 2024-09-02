@@ -25,7 +25,7 @@ export default function Details({ marker }: { marker: Marker }) {
                     <Divider style={{ margin: '10px 0px' }} />
                     <div className='flex w-full'><p>{marker.details}</p></div>
                 </div>
-                <div className='sm:col-span-2 h-full max-h-[80vh] overflow-y-auto no-scrollbar'>
+                <div className='sm:col-span-2 h-full max-h-[500px] overflow-y-auto no-scrollbar'>
                     {
                         marker.medias.map((media, index) => {
                             return <div key={index} className='flex flex-col gap-y-2 mb-5'>
