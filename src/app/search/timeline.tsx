@@ -1,9 +1,11 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Marker, Timeline } from '@/services/openai.service';
 import Image from 'next/image';
+import Modal from "antd/es/modal";
+import Details from './details';
 
 const Divider = ({ time, style, className }: any) => {
     return <div className={"h-full flex flex-col relative self-end" + className} style={{ height: "calc(100% - 30px)", ...style }}>
@@ -26,7 +28,9 @@ export default function TimelineVisualizer({ timeline }: { timeline: Timeline })
     });
     const x = useTransform(scrollYProgress, [0, 1], ["0%", "-100%"]);
     const width = useTransform(scrollYProgress, [0, 1], ["50vw", "100vw"]);
-    const _x = useTransform(() => `calc(${x.get()} + ${width.get()})`)
+    const _x = useTransform(() => `calc(${x.get()} + ${width.get()})`);
+    const [open, setOpen] = useState(false);
+    const [selectedMarker, setSelectedMarker] = useState<Marker | null>(null);
 
     return <div>
         <div ref={ref} className="hidden sm:flex sticky top-0 flex no-scrollbar w-full justify-center" style={{ height: `${timeline.markers.length * 350}px` }}>
@@ -48,7 +52,7 @@ export default function TimelineVisualizer({ timeline }: { timeline: Timeline })
                                 <Divider />
                                 <Divider />
                                 <Divider />
-                                <div className={`border-black border-[1px] absolute left-10 ease-in-out	duration-100 hover:shadow-2xl bg-white rounded-md flex flex-col p-4 w-[60%] ${index % 2 ? 'top-[15%]' : 'bottom-[15%]'}`}>
+                                <div onClick={() => { setSelectedMarker(marker); setOpen(true); }} className={`border-black border-[1px] absolute left-10 ease-in-out	duration-100 hover:shadow-2xl bg-white rounded-md flex flex-col p-4 w-[60%] ${index % 2 ? 'top-[15%]' : 'bottom-[15%]'}`}>
                                     <div className="text-lg font-bold">{marker.title}</div>
                                     <div className="text-md">{marker.preview}</div>
 
@@ -87,7 +91,7 @@ export default function TimelineVisualizer({ timeline }: { timeline: Timeline })
                 timeline.markers.map((marker: Marker, index: number) => {
                     return <div key={index} className='mt-5'>
                         <span>{marker.time}</span>
-                        <div className={`border-black border-[1px] left-10 ease-in-out duration-100 hover:shadow-2xl bg-white rounded-md flex flex-col p-4 w-full max-w-[300px]`}>
+                        <div onClick={() => { setSelectedMarker(marker); setOpen(true); }} className={`border-black border-[1px] left-10 ease-in-out duration-100 hover:shadow-2xl bg-white rounded-md flex flex-col p-4 w-full max-w-[300px]`}>
                             <div className="text-base font-bold">{marker.title}</div>
                             <div className="text-xs">{marker.preview}</div>
 
@@ -118,5 +122,15 @@ export default function TimelineVisualizer({ timeline }: { timeline: Timeline })
                 })
             }
         </div>
+        <Modal
+            open={open}
+            footer={null}
+            onCancel={() => setOpen(false)}
+            closable={true}
+            centered
+            width="min(calc(100vw - 32px), 800px)"
+        >
+            <Details marker={selectedMarker as Marker} />
+        </Modal >;
     </div >
 }
