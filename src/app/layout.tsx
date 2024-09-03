@@ -21,6 +21,7 @@ const neueMontreal = localFont({
 
 export const metadata: Metadata = {
   title: "chronologize.it",
+  description: "Learn from the beginning of time to the end of time.",
 };
 
 export default function RootLayout({
