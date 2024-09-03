@@ -11,7 +11,6 @@ const RawMarker = z.object({
     time: z.string(),
     title: z.string(),
     preview: z.string(),
-    details: z.string(),
 });
 
 const RawTimeline = z.object({
@@ -37,7 +36,7 @@ export interface Marker {
     time: string;
     title: string;
     preview: string;
-    details: string;
+    details?: string;
     medias: Media[];
 }
 
@@ -50,10 +49,10 @@ export interface Timeline {
 export const OpenAIService = {
     generate: async (query: string) => {
         const genTimelinePrompt = `Generate a timeline of the history of the topic "${query}" including major events and dates.
-For each event, provide a short preview of the event (one or two sentences), and a detailed description (one paragraph).
+For each event, provide a short preview of the event (one or two sentences).
 The last event should be the most recent event you can find.
-Provide a list of at most 7 related Wikipedia pages for the topic, we'll fetch the images from there to show users.
-Generate at most 15 events in the timeline.`;
+Generate at most 7 events in the timeline.
+Provide a list of at most 7 related Wikipedia pages for the events you have generated.`;
         const genTimelineCompletion = await client.chat.completions.create({
             messages: [{ role: 'user', content: genTimelinePrompt }],
             model: 'gpt-4o-mini-2024-07-18',
@@ -69,9 +68,9 @@ Generate at most 15 events in the timeline.`;
 The user has requested to load more information about the topic "${title}" from the event "${startMarker.title}" (${startMarker.time}) to the event "${endMarker.title}" (${endMarker.time}).
 
 You should created another timeline that includes major events related to the topic that happened between two events above (but exclude the events above).
-For each event, provide a short preview of the event (one or two sentences), and a detailed description (one paragraph).
+For each event, provide a short preview of the event (one or two sentences), and a detailed description (return empty string for now).
 The last event should be the most recent event you can find.
-Provide a list of at most 3 related Wikipedia pages for the topic, we'll fetch the images from there to show users.
+Provide a list of at most 3 related Wikipedia pages for events you have generated.
 Generate at most 3 events in the timeline.`;
         const loadMoreCompletion = await client.chat.completions.create({
             messages: [{ role: 'user', content: loadMorePrompt }],

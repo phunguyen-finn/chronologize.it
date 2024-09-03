@@ -18,6 +18,12 @@ export const WikiService = {
             if (!media['files']) {
                 return [];
             }
+
+            media['files'] = media['files'].filter((file: any) =>
+                file['preferred']['url'].includes('.svg') == false &&
+                (file['preferred']['width'] >= 100 ||
+                    file['preferred']['height'] >= 100));
+
             return media['files'].map((file: any) => {
                 return {
                     'title': file['title'],
@@ -30,7 +36,7 @@ export const WikiService = {
         }));
         const flattenedMediaFiles = mediaFiles.flat();
 
-        const titlesSet = new Set(); // temp variable to keep track of accepted ids
+        const titlesSet = new Set();
         const uniqueMedias = flattenedMediaFiles.filter(({ title }) => !titlesSet.has(title) && titlesSet.add(title));
         return uniqueMedias;
     }
