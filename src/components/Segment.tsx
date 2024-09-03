@@ -28,21 +28,21 @@ export default function Segment({ marker, children, handleClick, position }: { m
             <TimeDivider />
             <TimeDivider />
             <TimeDivider />
-            <span className="block sm:hidden absolute top-[-30px] left-1/2 z-10 -translate-x-1/2 bg-white w-11/12 text-center">{marker?.time}</span>
+            <span className="block sm:hidden absolute top-[-30px] left-1/2 z-10 -translate-x-1/2 bg-white dark:bg-black w-11/12 text-center dark:text-white">{marker?.time}</span>
             <motion.div
                 initial="initial"
                 whileHover="hover"
                 onClick={handleClick}
-                className={`z-10 cursor-pointer border-black border-[1px] static sm:absolute left-10 ease-in-out duration-300 hover:shadow-2xl bg-white rounded-md flex flex-col p-4 w-full my-3 sm:w-[70%] ${position == 'top' ? 'top-[15%]' : 'bottom-[15%]'}`}>
+                className={`z-10 dark:bg-black dark:border-white cursor-pointer border-black border-[1px] static sm:absolute left-10 ease-in-out duration-300 hover:shadow-2xl bg-white rounded-md flex flex-col p-4 w-full my-3 sm:w-[70%] ${position == 'top' ? 'top-[15%]' : 'bottom-[15%]'}`}>
                 {marker
                     ? <>
-                        <div className="text-lg font-bold">{marker.title}</div>
-                        <div className="text-md mb-5">{marker.preview}</div>
+                        <div className="text-lg font-bold dark:text-white">{marker.title}</div>
+                        <div className="text-md mb-5 dark:text-white">{marker.preview}</div>
                     </>
                     : <Skeleton active />
                 }
                 {
-                    marker ? <motion.div className="relative bg-white" variants={cardVariants[0]}>
+                    marker ? <motion.div className="relative bg-white dark:bg-black" variants={cardVariants[0]}>
                         {
                             (marker.medias.length > 0 && marker.medias[0].width / marker.medias[0].height >= 0.8) ?
                                 <Image
@@ -52,10 +52,10 @@ export default function Segment({ marker, children, handleClick, position }: { m
                                     height={marker.medias[0].height}
 
                                     style={{ width: '100%', height: 'auto' }}
-                                    className='rounded-md border-black bg-white border-[1px] relative z-10'
+                                    className='rounded-md border-black bg-white border-[1px] dark:border-white relative z-10'
                                 /> : (marker.medias.length > 0 && <div className="relative w-full h-[200px] z-10">
-                                    <div className='w-full h-full absolute rounded-md border-black border-[1px]' />
-                                    <div className="absolute w-full h-full bg-white -z-10"></div>
+                                    <div className='w-full h-full absolute rounded-md border-black dark:border-white border-[1px]' />
+                                    <div className="absolute w-full h-full bg-white -z-10 dark:bg-black"></div>
                                     <Image
                                         src={marker.medias[0].url}
                                         alt={marker.title}
@@ -69,10 +69,11 @@ export default function Segment({ marker, children, handleClick, position }: { m
                             marker.medias.slice(1, 3).map((media, index) => {
                                 return <motion.div
                                     key={index}
-                                    className="absolute top-0 bg-white left-0 w-full h-full overflow-hidden rounded-md border-black border-[1px]"
+                                    className="absolute top-0 bg-white left-0 w-full h-full overflow-hidden rounded-md border-black dark:border-white border-[1px]"
                                     variants={cardVariants[(index + 1) % 3]}
                                     style={{ zIndex: index }}
                                 >
+                                    <div className="absolute w-full h-full bg-white -z-10 dark:bg-black"></div>
                                     <Image
                                         src={media.url}
                                         alt={media.title}

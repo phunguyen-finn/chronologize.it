@@ -4,6 +4,8 @@ import "./globals.css";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import NextTopLoader from "nextjs-toploader";
 import BlurryCursor from "@/components/Cursor";
+import Theme from '@/components/ThemeProvider';
+import { ConfigProvider } from "antd";
 
 const neueMontreal = localFont({
   src: [
@@ -31,13 +33,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={neueMontreal.className}>
-        <AntdRegistry>
-          <NextTopLoader color="black" showSpinner={false} />
-          {children}
-          <BlurryCursor />
-        </AntdRegistry>
+        <Theme>
+          <AntdRegistry>
+            <NextTopLoader color="black" showSpinner={false} />
+            {children}
+            <BlurryCursor />
+          </AntdRegistry>
+        </Theme>
       </body>
     </html>
   );

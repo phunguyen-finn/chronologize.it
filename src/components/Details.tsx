@@ -9,11 +9,11 @@ export default function Details({ marker, showDetailsSkeleton }: { marker: Marke
     return <div className='flex flex-col h-full sm:grid sm:grid-cols-4 items-left w-full py-6 gap-x-4'>
         {
             marker.medias.length == 0 && <>
-                <div className='sm:col-span-4 flex flex-col'>
+                <div className='sm:col-span-4 flex flex-col dark:text-white'>
+                    <p className='text-gray-600 dark:text-gray-500'>{marker.time}</p>
                     <h1 className='mt-3 text-xl font-bold'>{marker.title}</h1>
-                    <p className='text-gray-600'>{marker.time}</p>
                     <Divider style={{ margin: '10px 0px' }} />
-                    <div className='flex w-full'><p>{marker.preview}</p></div> <br />
+                    <div className='flex w-full text-gray-600 dark:text-gray-500'><p>{marker.preview}</p></div> <br />
                     {
                         (marker.details == "" && showDetailsSkeleton)
                             ? <Skeleton paragraph={true} active />
@@ -24,11 +24,11 @@ export default function Details({ marker, showDetailsSkeleton }: { marker: Marke
         }
         {
             marker.medias.length != 0 && <>
-                <div className='sm:col-span-2 flex flex-col mb-5'>
-                    <p className='text-gray-600'>{marker.time}</p>
-                    <h1 className='mt-3 text-xl font-bold '>{marker.title}</h1>
+                <div className='sm:col-span-2 flex flex-col mb-5 dark:text-white'>
+                    <p className='text-gray-600 dark:text-gray-500 '>{marker.time}</p>
+                    <h1 className='mt-3 text-xl font-bold'>{marker.title}</h1>
                     <Divider style={{ margin: '10px 0px' }} />
-                    <p className='text-gray-600'>{marker.preview}</p> <br />
+                    <p className='text-gray-600 dark:text-gray-500'>{marker.preview}</p> <br />
                     {
                         (marker.details == "" && showDetailsSkeleton)
                             ? <Skeleton active />
@@ -40,7 +40,7 @@ export default function Details({ marker, showDetailsSkeleton }: { marker: Marke
                         marker.medias.map((media, index) => {
                             return <div key={index} className='flex flex-col gap-y-2 mb-5'>
                                 <Image src={media.url} alt={media.title} width={media.width} height={media.height} style={{ width: "100%", height: "auto" }} />
-                                <p className="text-gray-600 italic">{media.title}, from Wikipedia</p>
+                                <p className="text-gray-600 dark:text-gray-500 italic">{media.title}, from Wikipedia</p>
                             </div>
                         })
                     }
