@@ -193,7 +193,7 @@ export default function TimelineVisualizer({ initTimeline }: { initTimeline: Tim
             width="min(calc(100vw - 32px), 500px)"
         >
             <h1 className='mt-3 text-xl font-bold'>Share this timeline</h1>
-            <span>through the links below</span>
+            <span>through the link below</span>
             <Space.Compact
                 style={{
                     width: '100%',

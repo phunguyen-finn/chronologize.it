@@ -64,8 +64,8 @@ export default function Home() {
           </div>
         </div>
         <Background />
-        <div className='w-full h-[80%] absolute flex items-end justify-end -z-10'>
-          <span className='mb-5 mr-5 sm:mb-10 sm:mr-10 text-gray-500 text-xs sm:text-base'>{time}</span>
+        <div className='w-full h-[80%] absolute flex items-end justify-end z-10 pointer-events-none'>
+          <span className='mb-5 mr-5 sm:mb-10 sm:mr-10 text-gray-500 text-xs sm:text-base pointer-events-auto'>{time}</span>
         </div>
       </div>
 
