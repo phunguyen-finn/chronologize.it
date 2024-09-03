@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { ReactNode } from "react";
 import TimeDivider from "./TimeDivider";
+import Skeleton from "antd/es/skeleton";
 
 const cardVariants = [{
     hover: { scale: 1.02, translateX: '0px', rotate: '0deg' },
@@ -18,36 +19,41 @@ const cardVariants = [{
     initial: { rotate: '0deg', translateX: '0px', translateY: '0px', opacity: 1 }
 }];
 
-export default function Segment({ marker, children, handleClick, position }: { marker: Marker, children?: ReactNode, handleClick: any, position: "top" | "bottom" }) {
+export default function Segment({ marker, children, handleClick, position }: { marker?: Marker, children?: ReactNode, handleClick?: any, position: "top" | "bottom" }) {
     return (
-        <div className="flex items-center relative gap-0 sm:gap-[100px]">
+        <motion.div animate={{ scale: 1, opacity: 1 }} initial={{ scale: 0.9, opacity: 0 }} transition={{ ease: "easeInOut", duration: 0.1 }} className="flex items-center relative gap-0 sm:gap-[100px]">
             {children}
-            <TimeDivider time={marker.time} />
+            <TimeDivider time={marker?.time} />
             <TimeDivider />
             <TimeDivider />
             <TimeDivider />
             <TimeDivider />
+            <span className="block sm:hidden absolute top-[-30px] left-1/2 z-10 -translate-x-1/2 bg-white">{marker?.time}</span>
             <motion.div
                 initial="initial"
                 whileHover="hover"
                 onClick={handleClick}
-                className={`cursor-pointer border-black border-[1px] static sm:absolute left-10 ease-in-out duration-300 hover:shadow-2xl bg-white rounded-md flex flex-col p-4 w-full my-3 sm:w-[60%] ${position == 'top' ? 'top-[15%]' : 'bottom-[15%]'}`}>
-                <div className="text-lg font-bold">{marker.title}</div>
-                <div className="text-md mb-5">{marker.preview}</div>
+                className={`z-10 cursor-pointer border-black border-[1px] static sm:absolute left-10 ease-in-out duration-300 hover:shadow-2xl bg-white rounded-md flex flex-col p-4 w-full my-3 sm:w-[60%] ${position == 'top' ? 'top-[15%]' : 'bottom-[15%]'}`}>
+                {marker
+                    ? <>
+                        <div className="text-lg font-bold">{marker.title}</div>
+                        <div className="text-md mb-5">{marker.preview}</div>
+                    </>
+                    : <Skeleton active />
+                }
                 {
-                    marker.medias.length != 0 &&
-                    <motion.div className="relative bg-white" variants={cardVariants[0]}>
+                    marker ? <motion.div className="relative bg-white" variants={cardVariants[0]}>
                         {
-                            marker.medias.length != 0 && marker.medias[0].width / marker.medias[0].height >= 0.7 ?
+                            (marker.medias.length > 0 && marker.medias[0].width / marker.medias[0].height >= 0.7) ?
                                 <Image
-                                    src={marker.medias[0].url}
+                                    src={marker.medias[0]?.url}
                                     alt={marker.title}
                                     width={marker.medias[0].width}
                                     height={marker.medias[0].height}
 
                                     style={{ width: '100%', height: 'auto' }}
                                     className='rounded-md border-black bg-white border-[1px] relative z-10'
-                                /> : <div className="relative w-full h-[200px] z-10">
+                                /> : (marker.medias.length > 0 && <div className="relative w-full h-[200px] z-10">
                                     <div className='w-full h-full absolute bg-white z-0 rounded-md border-black border-[1px]' />
                                     <Image
                                         src={marker.medias[0].url}
@@ -56,7 +62,7 @@ export default function Segment({ marker, children, handleClick, position }: { m
                                         objectFit="contain"
                                         style={{ width: '100%', height: '100%' }}
                                     />
-                                </div>
+                                </div>)
                         }
                         {
                             marker.medias.slice(1, 3).map((media, index) => {
@@ -76,8 +82,9 @@ export default function Segment({ marker, children, handleClick, position }: { m
                             })
                         }
                     </motion.div>
+                        : <Skeleton.Node style={{ width: '100%', height: '100px', marginTop: "20px" }} active><div></div></Skeleton.Node>
                 }
             </motion.div>
-        </div>
+        </motion.div>
     );
 }
