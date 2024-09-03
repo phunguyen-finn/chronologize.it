@@ -18,9 +18,9 @@ const cardVariants = [{
     initial: { rotate: '0deg', translateX: '0px', translateY: '0px', opacity: 1 }
 }];
 
-export default function Segment({ marker, children, handleClick, position }: { marker: Marker, children: ReactNode, handleClick: any, position: "top" | "bottom" }) {
+export default function Segment({ marker, children, handleClick, position }: { marker: Marker, children?: ReactNode, handleClick: any, position: "top" | "bottom" }) {
     return (
-        <div className="flex items-center relative gap-[100px]">
+        <div className="flex items-center relative gap-0 sm:gap-[100px]">
             {children}
             <TimeDivider time={marker.time} />
             <TimeDivider />
@@ -31,7 +31,7 @@ export default function Segment({ marker, children, handleClick, position }: { m
                 initial="initial"
                 whileHover="hover"
                 onClick={handleClick}
-                className={`cursor-pointer border-black border-[1px] absolute left-10 ease-in-out duration-300 hover:shadow-2xl bg-white rounded-md flex flex-col p-4 w-[60%] ${position == 'top' ? 'top-[15%]' : 'bottom-[15%]'}`}>
+                className={`cursor-pointer border-black border-[1px] static sm:absolute left-10 ease-in-out duration-300 hover:shadow-2xl bg-white rounded-md flex flex-col p-4 w-full my-3 sm:w-[60%] ${position == 'top' ? 'top-[15%]' : 'bottom-[15%]'}`}>
                 <div className="text-lg font-bold">{marker.title}</div>
                 <div className="text-md mb-5">{marker.preview}</div>
                 {

@@ -3,7 +3,6 @@
 import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Marker, Timeline } from '@/services/openai.service';
-import Image from 'next/image';
 import Modal from "antd/es/modal";
 import Details from './details';
 import { generateDetails, loadMore } from '@/services/server.actions';
@@ -71,10 +70,10 @@ export default function TimelineVisualizer({ initTimeline }: { initTimeline: Tim
     };
 
     return <div>
-        <div ref={ref} className="flex sm:flex-row relative sm:sticky top-0 flex no-scrollbar w-full justify-center" style={{ height: `${timeline.markers.length * 500 + 400}px` }}>
-            <div className="sm:max-h-[100vh] sticky top-0 flex h-auto sm:h-screen items-center w-full overflow-y-auto sm:overflow-hidden no-scrollbar">
-                <motion.div style={{ x }} className='relative flex h-[75%] px-5 gap-[100px]'>
-                    <div className="relative w-[300px] lg:w-[400px] h-full md:ml-[100px]">
+        <div ref={ref} className="sm:flex-row sm:relative sm:sticky sm:top-0 sm:flex sm:no-scrollbar w-full justify-center [@media(max-width:640px)]:!h-auto py-14 sm:py-0" style={{ height: `${timeline.markers.length * 500 + 400}px` }}>
+            <div className="sm:max-h-[100vh] flex sm:sticky top-0 flex h-auto sm:h-screen items-center w-full overflow-y-auto sm:overflow-hidden no-scrollbar">
+                <motion.div style={{ x }} className='[@media(max-width:640px)]:!transform-none static flex flex-col sm:flex-row h-[75%] px-5 gap-0 sm:gap-[100px]'>
+                    <div className="static w-full sm:w-[300px] lg:w-[400px] h-auto sm:h-full md:ml-[100px]">
                         <h1 className="font-bold text-2xl lg:text-3xl">
                             {timeline.title}
                         </h1>
@@ -85,7 +84,7 @@ export default function TimelineVisualizer({ initTimeline }: { initTimeline: Tim
                     {
                         timeline.markers.map((marker: Marker, index: number) => {
                             return <Segment key={index} marker={marker} handleClick={() => handleClick(index)} position={index % 2 ? "top" : "bottom"}>
-                                {(index != 0 && loading == -1) && <div className='opacity-0 group hover:opacity-100 absolute h-full w-[200px] duration-[200ms] top-0 left-[-202px] flex items-center justify-center'>
+                                {(index != 0 && loading == -1) && <div className='hidden sm:flex opacity-0 group hover:opacity-100 absolute h-full w-[200px] duration-[200ms] top-0 left-[-202px] items-center justify-center'>
                                     <motion.button whileHover={{
                                         scale: 1.5, rotate: "45deg", transition: { duration: 0.1 }, backgroundColor: "rgba(0,0,0,1)"
                                     }}
@@ -97,7 +96,7 @@ export default function TimelineVisualizer({ initTimeline }: { initTimeline: Tim
                                 }
                                 {
                                     loading == index && (<>
-                                        <div className='opacity-100 absolute h-full w-[200px] duration-[200ms] top-0 left-[-202px] flex items-center justify-center'>
+                                        <div className='hidden sm:flex opacity-100 absolute h-full w-[200px] duration-[200ms] top-0 left-[-202px] flex items-center justify-center'>
                                             <div
                                                 className="relative opacity-100 ease-in-out duration-[200ms] bg-black flex items-center justify-center w-10 h-10 rounded-full scale-150" onClick={() => handleLoadMore(index)}>
                                                 <svg aria-hidden="true" className="inline w-4 h-4 text-black animate-spin dark:text-white fill-white dark:fill-black" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
