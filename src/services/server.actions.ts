@@ -5,6 +5,7 @@ import { createStreamableValue } from 'ai/rsc';
 import OpenAIService, { Marker } from "./openai.service";
 import { Timeline } from './openai.service';
 import { firestore } from './firebase';
+import { redirect } from 'next/navigation';
 
 export async function generateDetails(title: string, marker: Marker) {
     const stream = createStreamableValue('');

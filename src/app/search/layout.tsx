@@ -18,14 +18,6 @@ export default function Layout({
                         About
                         <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-black"></span>
                     </Link>
-                    <Link href='/about' className="group text-black dark:white text-md sm:text-xl">
-                        How
-                        <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-black"></span>
-                    </Link>
-                    <Link href='/about' className="group text-black dark:white text-md sm:text-xl">
-                        Develop
-                        <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-black"></span>
-                    </Link>
                     {/* <Link href='/about' className="group text-black dark:white text-md sm:text-xl">
                         Donate
                         <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-black"></span>

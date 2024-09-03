@@ -21,7 +21,7 @@ const cardVariants = [{
 
 export default function Segment({ marker, children, handleClick, position }: { marker?: Marker, children?: ReactNode, handleClick?: any, position: "top" | "bottom" }) {
     return (
-        <motion.div animate={{ scale: 1, opacity: 1 }} initial={{ scale: 0.9, opacity: 0 }} transition={{ ease: "easeInOut", duration: 0.1 }} className="flex items-center relative gap-0 sm:gap-[100px]">
+        <motion.div animate={{ scale: 1, opacity: 1 }} initial={{ scale: marker ? 1 : 0.9, opacity: marker ? 1 : 0 }} transition={{ ease: "easeIn", duration: 0.2 }} className="flex items-center relative gap-0 sm:gap-[100px]">
             {children}
             <TimeDivider time={marker?.time} />
             <TimeDivider />
@@ -33,7 +33,7 @@ export default function Segment({ marker, children, handleClick, position }: { m
                 initial="initial"
                 whileHover="hover"
                 onClick={handleClick}
-                className={`z-10 cursor-pointer border-black border-[1px] static sm:absolute left-10 ease-in-out duration-300 hover:shadow-2xl bg-white rounded-md flex flex-col p-4 w-full my-3 sm:w-[60%] ${position == 'top' ? 'top-[15%]' : 'bottom-[15%]'}`}>
+                className={`z-10 cursor-pointer border-black border-[1px] static sm:absolute left-10 ease-in-out duration-300 hover:shadow-2xl bg-white rounded-md flex flex-col p-4 w-full my-3 sm:w-[70%] ${position == 'top' ? 'top-[15%]' : 'bottom-[15%]'}`}>
                 {marker
                     ? <>
                         <div className="text-lg font-bold">{marker.title}</div>
@@ -44,7 +44,7 @@ export default function Segment({ marker, children, handleClick, position }: { m
                 {
                     marker ? <motion.div className="relative bg-white" variants={cardVariants[0]}>
                         {
-                            (marker.medias.length > 0 && marker.medias[0].width / marker.medias[0].height >= 0.7) ?
+                            (marker.medias.length > 0 && marker.medias[0].width / marker.medias[0].height >= 0.8) ?
                                 <Image
                                     src={marker.medias[0]?.url}
                                     alt={marker.title}

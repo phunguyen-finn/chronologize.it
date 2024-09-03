@@ -30,13 +30,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <AntdRegistry>
-        <NextTopLoader color="black" showSpinner={false} />
-        <body className={neueMontreal.className}>
+    <html lang="en">
+      <body className={neueMontreal.className}>
+        <AntdRegistry>
+          <NextTopLoader color="black" showSpinner={false} />
           {children}
-        </body>
-      </AntdRegistry>
+        </AntdRegistry>
+      </body>
     </html>
   );
 }

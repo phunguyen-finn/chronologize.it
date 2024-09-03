@@ -97,7 +97,7 @@ export default function TimelineVisualizer({ initTimeline }: { initTimeline: Tim
                 disabled={sharing}
                 onClick={handleShare}
                 style={{ opacity: sharing ? 0.7 : 1 }}
-                className="cursor-pointer flex items-center gap-x-[10px] justify-center bg-black text-white p-2 rounded-lg hover:shadow-xl ease-in-out duration-100 px-2"
+                className="disabled:cursor-not-allowed cursor-pointer flex items-center gap-x-[10px] justify-center bg-black text-white p-2 rounded-lg hover:shadow-xl ease-in-out duration-100 px-2"
             >
                 {sharing ? <svg aria-hidden="true" className="inline w-3 h-3 text-black animate-spin dark:text-white fill-white dark:fill-black" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor" />
@@ -105,9 +105,9 @@ export default function TimelineVisualizer({ initTimeline }: { initTimeline: Tim
                 </svg> : <ShareAltOutlined />}Share
             </button>
         </div>
-        <div ref={ref} className="sm:flex-row relative sm:sticky sm:top-0 sm:flex sm:no-scrollbar w-full justify-center [@media(max-width:640px)]:!h-auto py-14 sm:py-0" style={{ height: `${timeline.markers.length * 530 + 500 + (loading != -1 ? 1 : 0) * 1590}px` }}>
+        <div ref={ref} className="sm:flex-row relative sm:sticky sm:top-0 sm:flex sm:no-scrollbar w-full justify-center [@media(max-width:640px)]:!h-auto py-24 sm:py-0" style={{ height: `${timeline.markers.length * 530 + 500 + (loading != -1 ? 1 : 0) * 1590}px` }}>
             <div className="sm:max-h-[100vh] flex sm:sticky top-0 flex h-auto sm:h-screen items-center w-full overflow-y-auto sm:overflow-hidden no-scrollbar">
-                <motion.div style={{ x }} className='[@media(max-width:640px)]:!transform-none static flex flex-col sm:flex-row h-[75%] px-5'>
+                <motion.div style={{ x }} className='[@media(max-width:640px)]:!transform-none static flex flex-col sm:flex-row h-[85%] px-5'>
                     <div className="static w-full sm:w-[300px] lg:w-[400px] h-auto sm:h-full sm:ml-[30px] sm:mr-[100px] lg:mx-[100px]">
                         <h1 className="font-bold text-2xl lg:text-3xl">
                             {timeline.title}
@@ -163,13 +163,14 @@ export default function TimelineVisualizer({ initTimeline }: { initTimeline: Tim
                         }
                         {
                             <div className="h-full sm:hidden flex flex-col absolute flex h-full top-0 left-1/2 z-0">
-                                <svg width="5" height="100%" viewBox="0 0 5 100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <svg width="5" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M2.5 0L2.5 100000" stroke="#000000" strokeDasharray="5 5" />
                                 </svg>
                             </div>
                         }
+                        <TimeDivider time={"Now"} style={{ marginRight: "100px" }} />
                     </div>
-                    <TimeDivider time={"Now"} style={{ margin: "0px 100px" }} />
+                    <span className='self-center mb-5 sm:hidden' >Now</span>
                 </motion.div>
             </div>
         </div >

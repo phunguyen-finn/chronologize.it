@@ -45,7 +45,7 @@ export default function TimelineVisualizer({ initTimeline }: { initTimeline: Tim
                         }
                         {
                             <div className="h-full sm:hidden flex flex-col absolute flex h-full top-0 left-1/2 z-0">
-                                <svg width="5" height="100%" viewBox="0 0 5 100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <svg width="5" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M2.5 0L2.5 100000" stroke="#000000" strokeDasharray="5 5" />
                                 </svg>
                             </div>
