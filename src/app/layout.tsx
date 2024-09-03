@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import localFont from 'next/font/local'
 import "./globals.css";
-import Link from "next/link";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
+import NextTopLoader from "nextjs-toploader";
 
 const neueMontreal = localFont({
   src: [
@@ -30,8 +30,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <AntdRegistry>
+        <NextTopLoader color="black" showSpinner={false} />
         <body className={neueMontreal.className}>
           {children}
         </body>

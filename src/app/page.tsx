@@ -1,18 +1,29 @@
 'use client';
 
+import { Background } from '@/components/Background';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation'
+import { useEffect, useState } from 'react';
 
 export default function Home() {
   const router = useRouter();
+  const [time, setTime] = useState("");
 
   const search = (formData: any) => {
     const query = formData.get('query');
+    if (!query) return;
     router.push(`/search?query=${query}`);
   }
 
+  useEffect(() => {
+    const interval = setInterval(function () {
+      setTime(new Date().toTimeString());
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <main className="bg-white dark:bg-black">
+    <main className="max-w-screen overflow-hidden">
       {/* <div className="fixed top-0 right-0 p-5 z-20">
         <div className="inline-flex items-center">
           <div className="relative inline-block w-8 h-4 rounded-full cursor-pointer">
@@ -28,15 +39,22 @@ export default function Home() {
         </div>
       </div> */}
 
-      <div className="w-screen h-screen flex flex-col items-center justify-center">
+      <div className="relative max-w-full h-screen flex flex-col items-center justify-center overflow-hidden">
         <div className="w-full flex flex-col items-center">
           <h1 className="font-bold text-4xl sm:text-6xl lg:text-8xl text-black dark:text-white">chronologize.it</h1>
-          <div className="w-11/12 md:w-1/2 relative">
+          <h1 className="text-xs sm:text-base lg:text-xl text-black dark:text-white md:mt-3 md:mb-5 mt-2 mb-3">Everything— from beginning to end</h1>
+
+          <div className="w-11/12 md:w-[40%] relative">
             <form action={search}>
               <input name="query" type="text" className="placeholder:text-gray-500 dark:bg-black w-full p-2 mt-4 rounded-lg border-black dark:border-white border-[1px] border-black" placeholder="Enter a topic" />
               <button type="submit" className="hover:text-sky-700 dark:text-white absolute top-1/2 -translate-y-[20%] text-xl right-2">→</button>
             </form>
           </div>
+
+        </div>
+        <Background />
+        <div className='w-full h-[80%] absolute flex items-end justify-end -z-10'>
+          <span className='mb-10 mr-10 text-gray-500'>{time}</span>
         </div>
       </div>
 
