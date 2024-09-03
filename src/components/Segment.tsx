@@ -33,13 +33,13 @@ export default function Segment({ marker, children, handleClick, position }: { m
                 initial="initial"
                 whileHover="hover"
                 onClick={handleClick}
-                className={`z-10 dark:bg-black dark:border-white cursor-pointer border-black border-[1px] static sm:absolute left-10 ease-in-out duration-300 hover:shadow-2xl bg-white rounded-md flex flex-col p-4 w-full my-3 sm:w-[70%] ${position == 'top' ? 'top-[15%]' : 'bottom-[15%]'}`}>
+                className={`z-10 ${!marker ? 'dark:bg-zinc-700' : 'dark:bg-black'} dark:border-white cursor-pointer border-black border-[1px] static sm:absolute left-10 ease-in-out duration-300 hover:shadow-2xl bg-white rounded-md flex flex-col p-4 w-full my-3 sm:w-[70%] ${position == 'top' ? 'top-[15%]' : 'bottom-[15%]'}`}>
                 {marker
                     ? <>
                         <div className="text-lg font-bold dark:text-white">{marker.title}</div>
                         <div className="text-md mb-5 dark:text-white">{marker.preview}</div>
                     </>
-                    : <Skeleton active />
+                    : <Skeleton active rootClassName="relative z-20 text-white" />
                 }
                 {
                     marker ? <motion.div className="relative bg-white dark:bg-black" variants={cardVariants[0]}>
