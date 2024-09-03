@@ -3,6 +3,7 @@ import localFont from 'next/font/local'
 import "./globals.css";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import NextTopLoader from "nextjs-toploader";
+import BlurryCursor from "@/components/Cursor";
 
 const neueMontreal = localFont({
   src: [
@@ -35,6 +36,7 @@ export default function RootLayout({
         <AntdRegistry>
           <NextTopLoader color="black" showSpinner={false} />
           {children}
+          <BlurryCursor />
         </AntdRegistry>
       </body>
     </html>
