@@ -28,7 +28,7 @@ export default function Segment({ marker, children, handleClick, position }: { m
             <TimeDivider />
             <TimeDivider />
             <TimeDivider />
-            <span className="block sm:hidden absolute top-[-30px] left-1/2 z-10 -translate-x-1/2 bg-white">{marker?.time}</span>
+            <span className="block sm:hidden absolute top-[-30px] left-1/2 z-10 -translate-x-1/2 bg-white w-11/12 text-center">{marker?.time}</span>
             <motion.div
                 initial="initial"
                 whileHover="hover"

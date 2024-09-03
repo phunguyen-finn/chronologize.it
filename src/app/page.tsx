@@ -42,6 +42,10 @@ export default function Home() {
 
       <div className="fixed bottom-0 w-full flex flex-col sm:flex-row justify-between p-5 sm:items-center gap-[5px] sm:gap-0 z-20">
         <div className="flex gap-[10px] sm:gap-[20px]">
+          <Link href='/' className="group text-black dark:white text-md sm:text-xl">
+            Home
+            <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-black"></span>
+          </Link>
           <Link href='/about' className="group text-black dark:white text-md sm:text-xl">
             About
             <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-black"></span>
