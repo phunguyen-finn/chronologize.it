@@ -54,13 +54,14 @@ export default function Segment({ marker, children, handleClick, position }: { m
                                     style={{ width: '100%', height: 'auto' }}
                                     className='rounded-md border-black bg-white border-[1px] relative z-10'
                                 /> : (marker.medias.length > 0 && <div className="relative w-full h-[200px] z-10">
-                                    <div className='w-full h-full absolute bg-white z-0 rounded-md border-black border-[1px]' />
+                                    <div className='w-full h-full absolute rounded-md border-black border-[1px]' />
+                                    <div className="absolute w-full h-full bg-white -z-10"></div>
                                     <Image
                                         src={marker.medias[0].url}
                                         alt={marker.title}
                                         layout="fill"
                                         objectFit="contain"
-                                        style={{ width: '100%', height: '100%' }}
+                                        style={{ width: '100%', height: '100%', zIndex: -5 }}
                                     />
                                 </div>)
                         }
