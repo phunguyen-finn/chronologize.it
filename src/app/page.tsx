@@ -58,10 +58,10 @@ export default function Home() {
             Develop
             <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-black"></span>
           </Link>
-          <Link href='/about' className="group text-black dark:white text-md sm:text-xl">
+          {/* <Link href='/about' className="group text-black dark:white text-md sm:text-xl">
             Donate
             <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-black"></span>
-          </Link>
+          </Link> */}
         </div>
         <Link href='/terms' className="relative text-gray-500 text-xs z-20">
           Privacy Policy, Cookie Policy & Terms and Conditions →
