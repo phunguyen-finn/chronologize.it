@@ -1,8 +1,19 @@
 import OpenAIService from "@/services/openai.service";
 import TimelineVisualizer from "./timeline";
+import { redirect } from "next/navigation";
+
+export function generateMetadata({ searchParams }: any) {
+    return {
+        title: searchParams.query
+    };
+}
 
 export default async function SearchPage({ searchParams }: { searchParams: { query: string } }) {
     const { query } = searchParams;
+    if (!query) redirect('/');
+
+    // const mockWait = new Promise(resolve => setTimeout(resolve, 5000));
+    // await mockWait;
     const timeline = await OpenAIService.generate(query);
     // const timeline = {
     //     "title": "Timeline of Mushroom History",
