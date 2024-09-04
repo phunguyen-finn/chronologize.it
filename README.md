@@ -1,4 +1,4 @@
-# chronologize.it
+# chronologize
 
 <p align="center">
 <a href="https://www.npmjs.com/package/next"><img src="https://img.shields.io/badge/NextJS-15.0-black.svg" alt="Next.JS"></a>
@@ -11,9 +11,9 @@
 
 Get in, we're going back in time! 
 
-<b>chronologize.it</b> is an interactive journey through history that will keep you engaged. Whether you’re fascinated by the evolution of art, the rise of industrialization, or anything in between, <b>chronologize.it</b> brings the past to life. This interactive platform lets you explore detailed timelines and immerse yourself in the events that shaped our world.
+<b>chronologize</b> is an interactive journey through history that will keep you engaged. Whether you’re fascinated by the evolution of art, the rise of industrialization, or anything in between, <b>chronologize</b> brings the past to life. This interactive platform lets you explore detailed timelines and immerse yourself in the events that shaped our world.
 
-Born on September 2nd, Vietnam's Independence Day, this web application was inspired by a simple idea: timelines. During my visits to museums, I realized that timelines are a fascinating way to uncover the layers of history and understand the world better. Timelines reveal connections. Timelines answer. I created <b>chronologize.it</b> to share this discovery with others, hoping it becomes a tool for everyone to learn something new every day.
+Born on September 2nd, Vietnam's Independence Day, this web application was inspired by a simple idea: timelines. During my visits to museums, I realized that timelines are a fascinating way to uncover the layers of history and understand the world better. Timelines reveal connections. Timelines answer. I created <b>chronologize</b> to share this discovery with others, hoping it becomes a tool for everyone to learn something new every day.
 
 ## Future development
 - [ ] Export timeline
@@ -24,7 +24,7 @@ Born on September 2nd, Vietnam's Independence Day, this web application was insp
 
 ## Repository
 
-This repo holds the source code for chronologize.it's application, written using [NextJs framework](https://www.npmjs.com/package/next).
+This repo holds the source code for chronologize's application, written using [NextJs framework](https://www.npmjs.com/package/next).
 
 Latest revision: Sep 4th, 2024.
 

@@ -22,11 +22,11 @@ const neueMontreal = localFont({
 })
 
 export const metadata: Metadata = {
-  title: "chronologize.it",
+  title: "chronologize",
   description: "Everything, from the beginning to the end.",
   icons: '/capture.jpg',
   openGraph: {
-    title: "chronologize.it",
+    title: "chronologize",
     description: "Everything, from the beginning to the end.",
     images: ['/capture.jpg'],
     type: 'website',

@@ -9,10 +9,10 @@ export default function Page() {
 
                     Get in, we&quot;re going back in time! <br /> <br />
 
-                    <b>chronologize.it</b> is an interactive journey through history
+                    <b>chronologize</b> is an interactive journey through history
                     that will keep you engaged. Whether you’re fascinated by the
                     evolution of art, the rise of industrialization, or anything in between,
-                    <b> chronologize.it</b> brings the past to life. This interactive platform
+                    <b> chronologize</b> brings the past to life. This interactive platform
                     lets you explore detailed timelines and immerse yourself in the events that
                     shaped our world. <br /> <br />
 
@@ -20,7 +20,7 @@ export default function Page() {
                     application was inspired by a simple idea: timelines. During my visits to
                     museums for the holiday, I realized that timelines are a fascinating way to uncover the
                     layers of history and understand the world better. Timelines reveal
-                    connections. Timelines answer. Thus, I created <b>chronologize.it </b>
+                    connections. Timelines answer. Thus, I created <b>chronologize </b>
                     to share this discovery with others, hoping it becomes a tool for
                     everyone to learn something new every day. <br /> <br />
 
@@ -39,7 +39,7 @@ export default function Page() {
 
                     <b className="text-lg">Contacts</b>
                     <br />
-                    Hello, I&quot;m Phú—a software engineer who loves to build things. <b>chronologize.it</b> is one
+                    Hello, I&quot;m Phú—a software engineer who loves to build things. <b>chronologize</b> is one
                     of my creations, and I&quot;m thrilled to share it with you. Thank you for using this platform;
                     I hope you enjoy it as much as I do!
 
@@ -64,7 +64,7 @@ export default function Page() {
 
                     If you&quot;re interested in contributing to the development of this site, requesting a feature,
                     reporting a bug, following development progress, or just want to say hi, feel free to check out the
-                    repository <a target="_blank" href="https://github.com/phunguyen-finn/chronologize.it" className="text-sky-500 hover:underline">here.</a>
+                    repository <a target="_blank" href="https://github.com/phunguyen-finn/chronologize" className="text-sky-500 hover:underline">here.</a>
 
                     <br /><br />
                     <b className="text-lg">Privacy</b>

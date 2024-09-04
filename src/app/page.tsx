@@ -36,7 +36,7 @@ export default function Home() {
       <FixedLayout.Header />
       <div className="relative max-w-full h-screen flex flex-col items-center justify-center overflow-hidden">
         <div className="w-full flex flex-col items-center">
-          <h1 className="font-bold text-4xl sm:text-6xl lg:text-8xl text-black dark:text-white">chronologize.it</h1>
+          <h1 className="font-bold text-4xl sm:text-6xl lg:text-8xl text-black dark:text-white">chronologize</h1>
           <h1 className="text-xs sm:text-base lg:text-xl text-black dark:text-white md:mt-3 md:mb-5 mt-2 mb-3">everything— from beginning to end</h1>
           <div className="w-11/12 md:w-[40%] relative">
             <form onSubmit={handleSubmit}>
