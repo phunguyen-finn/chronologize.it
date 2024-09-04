@@ -6,7 +6,7 @@ import Divider from "antd/es/divider";
 import Image from "next/image";
 
 export default function Details({ marker, showDetailsSkeleton }: { marker: Marker, showDetailsSkeleton: boolean }) {
-    return <div className='flex flex-col h-full sm:grid sm:grid-cols-4 items-left w-full py-6 gap-x-4'>
+    return <div className='flex flex-col h-full sm:grid sm:grid-cols-4 items-left w-full py-6 gap-x-4 max-h-[90vh] overflow-y-auto no-scrollbar'>
         {
             marker.medias.length == 0 && <>
                 <div className='sm:col-span-4 flex flex-col dark:text-white'>
@@ -35,7 +35,7 @@ export default function Details({ marker, showDetailsSkeleton }: { marker: Marke
                             : <div className='flex w-full'><p>{marker.details}</p></div>
                     }
                 </div>
-                <div className='sm:col-span-2 h-full max-h-[300px] sm:max-h-[500px] overflow-y-auto no-scrollbar'>
+                <div className='sm:col-span-2 h-full sm:max-h-[300px] sm:max-h-[500px] sm:overflow-y-auto no-scrollbar'>
                     {
                         marker.medias.map((media, index) => {
                             return <div key={index} className='flex flex-col gap-y-2 mb-5'>
