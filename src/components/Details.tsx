@@ -35,7 +35,7 @@ export default function Details({ marker, showDetailsSkeleton }: { marker: Marke
                             : <div className='flex w-full'><p>{marker.details}</p></div>
                     }
                 </div>
-                <div className='sm:col-span-2 h-full sm:max-h-[300px] sm:max-h-[500px] sm:overflow-y-auto no-scrollbar'>
+                <div className='sm:col-span-2 h-full sm:max-h-[500px] sm:overflow-y-auto no-scrollbar'>
                     {
                         marker.medias.map((media, index) => {
                             return <div key={index} className='flex flex-col gap-y-2 mb-5'>
