@@ -193,7 +193,7 @@ export default function TimelineVisualizer({ initTimeline }: { initTimeline: Tim
                 centered
                 closeIcon={<CloseOutlined style={theme === 'dark' ? { color: "white" } : {}} />}
                 width="min(calc(100vw - 32px), 800px)"
-                classNames={{ wrapper: 'dark:bg-gray-500/50' }}
+                classNames={{ wrapper: 'dark:bg-gray-500/50 backdrop-blur-sm' }}
             >
                 <Details showDetailsSkeleton={true} marker={timeline.markers[selectedMarker] as Marker} />
             </Modal>
@@ -205,6 +205,7 @@ export default function TimelineVisualizer({ initTimeline }: { initTimeline: Tim
                 centered
                 closeIcon={<CloseOutlined style={theme === 'dark' ? { color: "white" } : {}} />}
                 width="min(calc(100vw - 32px), 500px)"
+                classNames={{ wrapper: 'dark:bg-gray-500/50 backdrop-blur-sm' }}
             >
                 <h1 className='mt-3 text-xl font-bold dark:text-white'>Share this timeline</h1>
                 <span className='dark:text-white'>through the link below</span>

@@ -63,7 +63,7 @@ export default function TimelineVisualizer({ initTimeline }: { initTimeline: Tim
                                     </svg>
                                 </div>
                             }
-                            <TimeDivider time={"Now"} style={{ margin: "0px 100px" }} />
+                            <TimeDivider time={"Now"} style={{ marginRight: "100px" }} />
                         </div>
                         <span className='self-center mb-5 sm:hidden dark:text-white'>Now</span>
                     </motion.div>
@@ -77,6 +77,7 @@ export default function TimelineVisualizer({ initTimeline }: { initTimeline: Tim
                 centered
                 closeIcon={<CloseOutlined style={theme === 'dark' ? { color: "white" } : {}} />}
                 width="min(calc(100vw - 32px), 800px)"
+                classNames={{ wrapper: 'dark:bg-gray-500/50 backdrop-blur-sm' }}
             >
                 <Details showDetailsSkeleton={true} marker={timeline.markers[selectedMarker] as Marker} />
             </Modal >;

@@ -70,7 +70,7 @@ export default function Home() {
           </Link>
         </div>
         <Link href='/terms' className="relative text-gray-500 text-xs z-20">
-          Privacy Policy, Cookie Policy & Terms and Conditions →
+          @phu.builds →
         </Link>
       </div>
     </main >
