@@ -64,7 +64,7 @@ export default function Page() {
 
                     If you&quot;re interested in contributing to the development of this site, requesting a feature,
                     reporting a bug, following development progress, or just want to say hi, feel free to check out the
-                    repository <a target="_blank" href="https://github.com/phunguyen-finn/chronologize" className="text-sky-500 hover:underline">here.</a>
+                    repository <a target="_blank" href="https://github.com/phunguyen-finn/chronologize.site" className="text-sky-500 hover:underline">here.</a>
 
                     <br /><br />
                     <b className="text-lg">Privacy</b>
