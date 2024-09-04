@@ -1,7 +1,9 @@
+import Image from "next/image";
+
 export default function Page() {
     return (
         <main className="max-w-screen min-h-screen flex justify-center py-24 sm:py-16 overflow-hidden relative">
-            <div className="w-11/12 sm:w-8/12 md:w-[600px] h-full bg-white dark:bg-black dark:text-white">
+            <div className="w-11/12 sm:w-8/12 md:w-[600px] h-full bg-white dark:bg-black dark:text-white flex flex-col">
                 <h1 className="text-4xl md:text-5xl font-bold">About</h1>
                 <div>
 
@@ -29,6 +31,12 @@ export default function Page() {
                     like this possible. A heartfelt thank you to everyone who contributes
                     to this invaluable resource. <br /> <br />
 
+                    <b className="text-lg">Limitation</b>
+                    <br />
+                    Since this project is non-profit and relies on the <i>Wikipedia API</i> and low-budget LLM
+                    models, there are limitations to the number of requests and the quality of the data.
+                    If you encounter any errors or missing information, please be patient. <br /><br />
+
                     <b className="text-lg">Contacts</b>
                     <br />
                     Hello, I&quot;m Phú—a software engineer who loves to build things. <b>chronologize.it</b> is one
@@ -40,6 +48,16 @@ export default function Page() {
                     Instagram: <a target="_blank" href="https://instagram.com/phu.builds" className="text-sky-500 hover:underline">@phu.builds</a>
                     <br /><br />
 
+                    <b className="text-lg">BuyMeACoffee</b>
+                    <br />
+                    If you find this project helpful, consider buying me a coffee to support its development. Your
+                    contribution will help keep the project running and encourage me to add more features. You
+                    can click <a target="_blank" href="buymeacoffee.com/phunguyen.finn" className="text-sky-500 hover:underline">here</a> or
+                    scan the QR below:
+                    <div className="w-full flex justify-center">
+                        <Image src="/buymeacoffee.jpg" width={150} height={150} alt="BuyMeACoffee" className="self-center" />
+                    </div>
+                    <br />
                     <b className="text-lg">Development</b>
                     <br />
 
