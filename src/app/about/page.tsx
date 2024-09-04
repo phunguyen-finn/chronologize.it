@@ -9,8 +9,8 @@ export default function Page() {
 
                     Get in, we&quot;re going back in time! <br /> <br />
 
-                    <b>chronologize</b> is an interactive journey through history
-                    that will keep you engaged. Whether you’re fascinated by the
+                    <b>chronologize</b> offers interactive journeys through history
+                    that will keep you engaged. Whether you&quot;re fascinated by the
                     evolution of art, the rise of industrialization, or anything in between,
                     <b> chronologize</b> brings the past to life. This interactive platform
                     lets you explore detailed timelines and immerse yourself in the events that
