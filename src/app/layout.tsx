@@ -37,7 +37,7 @@ export default function RootLayout({
       <body className={neueMontreal.className}>
         <Theme>
           <AntdRegistry>
-            <NextTopLoader color="black" showSpinner={false} />
+            <NextTopLoader color="#9ca3af" showSpinner={false} />
             {children}
             <BlurryCursor />
           </AntdRegistry>

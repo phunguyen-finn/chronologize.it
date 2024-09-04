@@ -63,8 +63,9 @@ export default function TimelineVisualizer({ initTimeline }: { initTimeline: Tim
                                     </svg>
                                 </div>
                             }
+                            <TimeDivider time={"Now"} style={{ margin: "0px 100px" }} />
                         </div>
-                        <TimeDivider time={"Now"} style={{ margin: "0px 100px" }} />
+                        <span className='self-center mb-5 sm:hidden dark:text-white'>Now</span>
                     </motion.div>
                 </div>
             </div >

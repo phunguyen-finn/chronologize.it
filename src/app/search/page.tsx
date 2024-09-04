@@ -12,6 +12,8 @@ export default async function SearchPage({ searchParams }: { searchParams: { que
     const { query } = searchParams;
     if (!query) redirect('/');
 
+    // const mockWait = new Promise(resolve => setTimeout(resolve, 20000));
+    // await mockWait;
     const timeline = await OpenAIService.generate(query);
     // const timeline = {
     //     "title": "Timeline of Mushroom History",

@@ -181,7 +181,7 @@ export default function TimelineVisualizer({ initTimeline }: { initTimeline: Tim
                             }
                             <TimeDivider time={"Now"} style={{ marginRight: "100px" }} />
                         </div>
-                        <span className='self-center mb-5 sm:hidden' >Now</span>
+                        <span className='self-center mb-5 sm:hidden dark:text-white'>Now</span>
                     </motion.div>
                 </div>
             </div >
