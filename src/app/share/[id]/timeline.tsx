@@ -31,7 +31,7 @@ export default function TimelineVisualizer({ initTimeline }: { initTimeline: Tim
         theme={{
             components: {
                 Modal: {
-                    contentBg: theme == "light" ? "white" : "black",
+                    contentBg: theme === "dark" ? "black" : "white",
                 },
             },
         }}
