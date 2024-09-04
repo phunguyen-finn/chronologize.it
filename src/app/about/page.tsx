@@ -1,8 +1,6 @@
-import Script from "next/script";
-
 export default function Page() {
     return (
-        <main className="w-screen min-h-screen flex justify-center py-24 sm:py-16">
+        <main className="max-w-screen min-h-screen flex justify-center py-24 sm:py-16 overflow-hidden relative">
             <div className="w-11/12 sm:w-8/12 md:w-[600px] h-full bg-white dark:bg-black dark:text-white">
                 <h1 className="text-4xl md:text-5xl font-bold">About</h1>
                 <div>
@@ -18,9 +16,9 @@ export default function Page() {
 
                     Born on <i>Vietnam's Independence Day</i> (September 2nd, 2024), this web
                     application was inspired by a simple idea: timelines. During my visits to
-                    museums, I realized that timelines are a fascinating way to uncover the
+                    museums for the holiday, I realized that timelines are a fascinating way to uncover the
                     layers of history and understand the world better. Timelines reveal
-                    connections. Timelines answer. I created <b>chronologize.it </b>
+                    connections. Timelines answer. Thus, I created <b>chronologize.it </b>
                     to share this discovery with others, hoping it becomes a tool for
                     everyone to learn something new every day. <br /> <br />
 
@@ -37,7 +35,7 @@ export default function Page() {
                     of my creations, and I'm thrilled to share it with you. Thank you for using this platform;
                     I hope you enjoy it as much as I do!
 
-                    You can contact me via<br /><br />
+                    You can contact me via:<br /><br />
                     Email: phunguyen.finn@gmail.com<br />
                     Instagram: <a target="_blank" href="https://instagram.com/phu.builds" className="text-sky-500 hover:underline">@phu.builds</a>
                     <br /><br />
@@ -45,9 +43,16 @@ export default function Page() {
                     <b className="text-lg">Development</b>
                     <br />
 
-                    Development
-                    If you're interested in contributing to the development of this site,
-                    I'd love to collaborate with you! Feel free to check out the repository <a target="_blank" href="https://github.com/phunguyen-finn/chronologize.it" className="text-sky-500 hover:underline">here</a>
+                    If you're interested in contributing to the development of this site, requesting a feature,
+                    reporting a bug, following development progress, or just want to say hi, feel free to check out the
+                    repository <a target="_blank" href="https://github.com/phunguyen-finn/chronologize.it" className="text-sky-500 hover:underline">here.</a>
+
+                    <br /><br />
+                    <b className="text-lg">Privacy</b>
+                    <br />
+                    When you visit the website, our servers may automatically log the standard data provided by your web browser. It may include your computer’s Internet Protocol (IP) address, your browser type and version, the pages you visit, the time and date of your visit, the time spent on each page, and other details.
+                    <br /><br />
+                    We may also collect data about the device you’re using to access our website. This data may include the device type, operating system, unique device identifiers, device settings, and geo-location data. What we collect can depend on the individual settings of your device and software. We recommend checking the policies of your device manufacturer or software provider to learn what information they make available to us.
                 </div>
             </div>
         </main>

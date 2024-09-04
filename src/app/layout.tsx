@@ -5,7 +5,6 @@ import { AntdRegistry } from "@ant-design/nextjs-registry";
 import NextTopLoader from "nextjs-toploader";
 import BlurryCursor from "@/components/Cursor";
 import Theme from '@/components/ThemeProvider';
-import { ConfigProvider } from "antd";
 
 const neueMontreal = localFont({
   src: [
@@ -24,7 +23,14 @@ const neueMontreal = localFont({
 
 export const metadata: Metadata = {
   title: "chronologize.it",
-  description: "Learn from the beginning of time to the end of time.",
+  description: "Everything, from the beginning to the end.",
+  icons: '/capture.jpg',
+  openGraph: {
+    title: "chronologize.it",
+    description: "Everything, from the beginning to the end.",
+    images: ['/capture.jpg'],
+    type: 'website',
+  },
 };
 
 export default function RootLayout({

@@ -24,7 +24,7 @@ FixedLayout.Footer = function Footer() {
             </Link>
         </div>
         <a target="_blank" href='http://instagram.com/phu.builds' className="group relative text-gray-500 text-xs z-20">
-            Follow @finn.builds →
+            Follow @phu.builds →
             <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-black dark:bg-white"></span>
         </a>
     </div>
