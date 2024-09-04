@@ -7,16 +7,16 @@ export default function Page() {
                 <h1 className="text-4xl md:text-5xl font-bold">About</h1>
                 <div>
 
-                    Get in, we&quot;re going back in time! <br /> <br />
+                    Get in, we&apos;re going back in time! <br /> <br />
 
                     <b>chronologize</b> offers interactive journeys through history
-                    that will keep you engaged. Whether you&quot;re fascinated by the
+                    that will keep you engaged. Whether you&apos;re fascinated by the
                     evolution of art, the rise of industrialization, or anything in between,
                     <b> chronologize</b> brings the past to life. This interactive platform
                     lets you explore detailed timelines and immerse yourself in the events that
                     shaped our world. <br /> <br />
 
-                    Born on <i>Vietnam&quot;s Independence Day</i> (September 2nd, 2024), this web
+                    Born on <i>Vietnam&apos;s Independence Day</i> (September 2nd, 2024), this web
                     application was inspired by a simple idea: timelines. During my visits to
                     museums for the holiday, I realized that timelines are a fascinating way to uncover the
                     layers of history and understand the world better. Timelines reveal
@@ -39,8 +39,8 @@ export default function Page() {
 
                     <b className="text-lg">Contacts</b>
                     <br />
-                    Hello, I&quot;m Phú—a software engineer who loves to build things. <b>chronologize</b> is one
-                    of my creations, and I&quot;m thrilled to share it with you. Thank you for using this platform;
+                    Hello, I&apos;m Phú—a software engineer who loves to build things. <b>chronologize</b> is one
+                    of my creations, and I&apos;m thrilled to share it with you. Thank you for using this platform;
                     I hope you enjoy it as much as I do!
 
                     You can contact me via:<br /><br />
@@ -62,7 +62,7 @@ export default function Page() {
                     <b className="text-lg">Development</b>
                     <br />
 
-                    If you&quot;re interested in contributing to the development of this site, requesting a feature,
+                    If you&apos;re interested in contributing to the development of this site, requesting a feature,
                     reporting a bug, following development progress, or just want to say hi, feel free to check out the
                     repository <a target="_blank" href="https://github.com/phunguyen-finn/chronologize.site" className="text-sky-500 hover:underline">here.</a>
 
