@@ -54,7 +54,8 @@ export default function Page() {
                     contribution will help keep the project running and encourage me to add more features. You
                     can click <a target="_blank" href="buymeacoffee.com/phunguyen.finn" className="text-sky-500 hover:underline">here</a> or
                     scan the QR below:
-                    <div className="w-full flex justify-center">
+                    <br /><br />
+                    <div className="w-full flex justify-center dark:invert">
                         <Image src="/buymeacoffee.jpg" width={150} height={150} alt="BuyMeACoffee" className="self-center" />
                     </div>
                     <br />
