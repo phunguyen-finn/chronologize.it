@@ -15,29 +15,12 @@ Get in, we're going back in time!
 
 Born on September 2nd, Vietnam's Independence Day, this web application was inspired by a simple idea: timelines. During my visits to museums, I realized that timelines are a fascinating way to uncover the layers of history and understand the world better. Timelines reveal connections. Timelines answer. I created <b>chronologize.it</b> to share this discovery with others, hoping it becomes a tool for everyone to learn something new every day.
 
-## Acknowledgements
-I have a deep appreciation for <i>Wikipedia</i> and its incredible community. Their commitment to making knowledge accessible is what makes projects like this possible. A heartfelt thank you to everyone who contributes to this invaluable resource.
-
-## Contacts
-Hello, I'm Phú—a software engineer who loves to build things. <b>chronologize.it</b> is one of my creations, and I'm thrilled to share it with you. Thank you for using this platform; I hope you enjoy it as much as I do! 
-
-You can contact me via
-Email: phunguyen.finn@gmail.cpm
-Instagram: @phu.builds
-<script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="phunguyen.finn" data-color="#FFDD00" data-emoji=""  data-font="Inter" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
-
-## Development
-If you're interested in contributing to the development of this site, I'd love to collaborate with you! Feel free to check out the repository here: [link].
-
-
-
-
-
 ## Future development
 - [ ] Export timeline
 - [ ] Import timeline
 - [ ] Create custom timeline
 - [ ] Users
+- [ ] Experiment with Gemini
 
 ## Repository
 
