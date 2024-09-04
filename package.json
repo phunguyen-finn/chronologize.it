@@ -9,9 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ai-sdk/google": "^0.0.46",
     "@ai-sdk/openai": "^0.0.54",
     "@ant-design/icons": "^5.4.0",
     "@ant-design/nextjs-registry": "^1.0.1",
+    "@google/generative-ai": "^0.17.1",
     "ai": "^3.3.25",
     "antd": "^5.20.4",
     "firebase-admin": "^12.4.0",

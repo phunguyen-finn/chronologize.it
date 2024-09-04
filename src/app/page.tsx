@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react';
 import * as NProgress from 'nprogress';
 import ThemeToggle from '@/components/ThemeToggle';
+import FixedLayout from '@/components/Footer';
 
 export default function Home() {
   const [time, setTime] = useState("00:00:00 GMT+0700 (Indochina Time)");
@@ -32,10 +33,7 @@ export default function Home() {
 
   return (
     <main className="max-w-screen overflow-hidden">
-      <div className="fixed top-0 left-0 p-5 z-20">
-        <ThemeToggle />
-      </div>
-
+      <FixedLayout.Header />
       <div className="relative max-w-full h-screen flex flex-col items-center justify-center overflow-hidden">
         <div className="w-full flex flex-col items-center">
           <h1 className="font-bold text-4xl sm:text-6xl lg:text-8xl text-black dark:text-white">chronologize.it</h1>
@@ -58,21 +56,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="fixed bottom-0 w-full flex flex-col sm:flex-row justify-between p-5 sm:items-center gap-[5px] sm:gap-0 z-20">
-        <div className="flex gap-[10px] sm:gap-[20px]">
-          <Link href='/' className="group text-black dark:text-white text-md sm:text-xl">
-            Home
-            <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-black dark:bg-white"></span>
-          </Link>
-          <Link href='/about' className="group text-black dark:text-white text-md sm:text-xl">
-            About
-            <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-black dark:bg-white"></span>
-          </Link>
-        </div>
-        <Link href='/terms' className="relative text-gray-500 text-xs z-20">
-          @phu.builds →
-        </Link>
-      </div>
+      <FixedLayout.Footer />
     </main >
   );
 }

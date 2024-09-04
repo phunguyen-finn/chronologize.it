@@ -9,6 +9,37 @@
 <a href="https://vercel.com"><img src="https://img.shields.io/badge/vercel-white.svg" alt="Vercel"></a>
 </p>
 
+Get in, we're going back in time! 
+
+<b>chronologize.it</b> is an interactive journey through history that will keep you engaged. Whether you’re fascinated by the evolution of art, the rise of industrialization, or anything in between, <b>chronologize.it</b> brings the past to life. This interactive platform lets you explore detailed timelines and immerse yourself in the events that shaped our world.
+
+Born on September 2nd, Vietnam's Independence Day, this web application was inspired by a simple idea: timelines. During my visits to museums, I realized that timelines are a fascinating way to uncover the layers of history and understand the world better. Timelines reveal connections. Timelines answer. I created <b>chronologize.it</b> to share this discovery with others, hoping it becomes a tool for everyone to learn something new every day.
+
+## Acknowledgements
+I have a deep appreciation for <i>Wikipedia</i> and its incredible community. Their commitment to making knowledge accessible is what makes projects like this possible. A heartfelt thank you to everyone who contributes to this invaluable resource.
+
+## Contacts
+Hello, I'm Phú—a software engineer who loves to build things. <b>chronologize.it</b> is one of my creations, and I'm thrilled to share it with you. Thank you for using this platform; I hope you enjoy it as much as I do! 
+
+You can contact me via
+Email: phunguyen.finn@gmail.cpm
+Instagram: @phu.builds
+<script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="phunguyen.finn" data-color="#FFDD00" data-emoji=""  data-font="Inter" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
+
+## Development
+If you're interested in contributing to the development of this site, I'd love to collaborate with you! Feel free to check out the repository here: [link].
+
+
+
+
+
+## Future development
+- [ ] Export timeline
+- [ ] Import timeline
+- [ ] Create custom timeline
+- [ ] Users
+
+## Repository
 
 This repo holds the source code for chronologize.it's application, written using [NextJs framework](https://www.npmjs.com/package/next).
 
@@ -20,6 +51,8 @@ Please contact [Phu Nguyen](https://fb.com/nnphongphu) for further inquiry.
 All infrastructures for hosting this web application are provided by the following cloud providers:
 1. Hosting: [Vercel](https://vercel.com)
 2. Database: [Firestore](https://firebase.google.com)
+3. LLM: [OpenAI](https://openai.com)
+4. Search engine: [Wikipedia](https://wikipedia.com)
 
 For involved parties & maintainers, please contact me to get console access to these services.
 
@@ -40,18 +73,3 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
