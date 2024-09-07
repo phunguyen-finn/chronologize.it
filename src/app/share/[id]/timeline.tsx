@@ -70,6 +70,7 @@ export default function TimelineVisualizer({ initTimeline }: { initTimeline: Tim
                 </div>
             </div >
             <Modal
+
                 open={open}
                 footer={null}
                 onCancel={() => setOpen(false)}
@@ -78,6 +79,7 @@ export default function TimelineVisualizer({ initTimeline }: { initTimeline: Tim
                 closeIcon={<CloseOutlined style={theme === 'dark' ? { color: "white" } : {}} />}
                 width="min(calc(100vw - 32px), 800px)"
                 classNames={{ wrapper: 'dark:bg-gray-500/50 backdrop-blur-sm' }}
+                destroyOnClose={true}
             >
                 <Details showDetailsSkeleton={true} marker={timeline.markers[selectedMarker] as Marker} />
             </Modal >;
