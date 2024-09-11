@@ -1,11 +1,9 @@
 'use client';
 
 import { Background } from '@/components/Background';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react';
 import * as NProgress from 'nprogress';
-import ThemeToggle from '@/components/ThemeToggle';
 import FixedLayout from '@/components/Footer';
 
 export default function Home() {
